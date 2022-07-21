@@ -35,10 +35,24 @@ function add(...theArgs) {
     console.log(result);
 }
 
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1/num2;
+}
+
 function operate(num1, num2, operator) {
   if (operator == '+') {
     add(num1, num2);
   }
 }
 
-let number = 0;
+let firstNum = 0;
+let SecondNum = 0;
+let 
