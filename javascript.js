@@ -1,4 +1,5 @@
 function calculate(numEntered) {
+  // Clear
   if (numEntered == 'C') {
     document.getElementById('answer').value = '';
     firstNum = 0;
@@ -6,35 +7,63 @@ function calculate(numEntered) {
     operatorBool = '';
     operatorPass = '';
   }
+  // Add
   else if (numEntered == '+') {
-    firstNum = parseFloat(document.getElementById('answer').value);
+    if (operatorPass != '+') {
+      firstNum = parseFloat(document.getElementById('answer').value);
+    }
     if (operatorPass == '+') {
       secondNum = parseFloat(document.getElementById('answer').value);
       firstNum = firstNum + secondNum;
       document.getElementById('answer').value = firstNum;
-      operatorPass = '';
     }
     operatorPass = numEntered;
     operatorBool = numEntered;
   }
+  // Subtract
   else if (numEntered == '-') {
-    firstNum = parseFloat(document.getElementById('answer').value);
+    if (operatorPass != '-') {
+      firstNum = parseFloat(document.getElementById('answer').value);
+    }
+    if (operatorPass == '-') {
+      secondNum = parseFloat(document.getElementById('answer').value);
+      firstNum = firstNum - secondNum;
+      document.getElementById('answer').value = firstNum;
+    }
     operatorPass = numEntered;
     operatorBool = numEntered;
   }
+  // Multiply
   else if (numEntered == '*') {
-    firstNum = parseFloat(document.getElementById('answer').value);
+    if (operatorPass != '*') {
+      firstNum = parseFloat(document.getElementById('answer').value);
+    }
+    if (operatorPass == '*') {
+      secondNum = parseFloat(document.getElementById('answer').value);
+      firstNum = firstNum * secondNum;
+      document.getElementById('answer').value = firstNum;
+    }
     operatorPass = numEntered;
     operatorBool = numEntered;
   }
+  //Divide
   else if (numEntered == '/') {
-    firstNum = parseFloat(document.getElementById('answer').value);
+    if (operatorPass != '/') {
+      firstNum = parseFloat(document.getElementById('answer').value);
+    }
+    if (operatorPass == '/') {
+      secondNum = parseFloat(document.getElementById('answer').value);
+      firstNum = firstNum / secondNum;
+      document.getElementById('answer').value = firstNum;
+    }
     operatorPass = numEntered;
     operatorBool = numEntered;
   }
   else if (numEntered == '=') {
     secondNum = parseFloat(document.getElementById('answer').value);
     operate(firstNum, secondNum, operatorPass);
+    operatorPass = '';
+    operatorBool = '';
   }
   else {
     if (operatorBool != '') {
@@ -48,15 +77,12 @@ function calculate(numEntered) {
 function add(num1, num2) {
   return num1 + num2;
 }
-
 function subtract(num1, num2) {
   return num1 - num2;
 }
-
 function multiply(num1, num2) {
   return num1 * num2;
 }
-
 function divide(num1, num2) {
   return num1 / num2;
 }
